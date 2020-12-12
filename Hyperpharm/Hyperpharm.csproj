@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework.Aero" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -96,6 +97,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="res\rabbit_profile.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\iot_grading.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\icon_drugs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\icon_torch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\icon_cotton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

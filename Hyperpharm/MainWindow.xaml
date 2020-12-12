@@ -5,86 +5,310 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hyperpharm"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="#202020">
-	<Grid>
-		<Grid>    
-        <Grid.ColumnDefinitions>    
-            <ColumnDefinition Width="4*"></ColumnDefinition>    
-            <ColumnDefinition Width="1*"></ColumnDefinition>   
-            <ColumnDefinition Width="4*"></ColumnDefinition> 
-        </Grid.ColumnDefinitions>    
+        Title="MainWindow" Height="700" Width="1100" Background="#202020" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="1.5*"></RowDefinition>
+        </Grid.RowDefinitions>
 
-            <GroupBox
+        <GroupBox 
+            Grid.Row="0" 
+            Grid.Column="0"
+            HorizontalAlignment="Stretch" 
+            VerticalAlignment="Stretch"
+            BorderThickness="0"
+            >
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                    <ColumnDefinition Width="4*"></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <GroupBox
+                Grid.Column="0"
                 BorderThickness="0"
-                FontWeight="Bold"
-                Foreground="#47bfb9"
-				Grid.Row="0"
-				Grid.Column="0"
-				Background="#FFFFFF"
-				Margin="10, 10, 5, 10"
-				>
+                Margin="0, 5, 2.5, 0"
+                Background="#555555"
+                    Opacity="0.8">
 
-                <StackPanel Orientation="Vertical">
-                    <Grid Margin="10">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"></ColumnDefinition>
-                            <ColumnDefinition Width="1*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition></RowDefinition>
-                        </Grid.RowDefinitions>
-
-                        <Image Source="res/rabbit_profile.jpg" Grid.Row="0" Grid.Column="0" ></Image>
-                        <Image Source="res/rabbit_profile.jpg" Grid.Row="0" Grid.Column="1"></Image>
-
-                        
-                        
-                    </Grid>
-
-                    <StackPanel Orientation="Vertical" Margin="10">
-                        <DockPanel Height="50">
-                            <Button DockPanel.Dock="Left" HorizontalAlignment="Left" Width="120" VerticalAlignment="Stretch" 
-                                    Padding="5" Margin="0, 0, 5, 0">
-                                Administer drug...
-                            </Button>
-                            <TextBlock DockPanel.Dock="Right" Background="#DDDDDD" 
-                                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextAlignment="Center"
-                                       Padding="17" Margin="5, 0, 0, 0">
-                                Propantheline
+                    <GroupBox.Header>
+                        <Border BorderThickness="0" CornerRadius="3" BorderBrush="#FFFFFF" Background="#FFFFFF">
+                            <TextBlock Foreground="#474747" Padding="2" Width="75" TextAlignment="Center" FontWeight="Bold">
+                                Direction
                             </TextBlock>
-                        </DockPanel>
-                        <Button HorizontalAlignment="Stretch" Height="100" >Sample</Button>
+                        </Border>
+                    </GroupBox.Header>
+
+                    <TextBlock Foreground="#FFFFFF" FontWeight="Regular" TextWrapping="Wrap" Padding="10"
+                               FontSize="22">
+                        Instill drugs one by one and observe their effects on the rabbit's eye. 
+                        Tabulate the data and draw conclusions.
+                    </TextBlock>
+
+                </GroupBox>
+
+                <GroupBox
+                Grid.Column="1"
+                BorderThickness="0"
+                Margin="2.5, 5, 2.5, 0"
+                Background="#555555"
+                    Opacity="0.8">
+
+                    <GroupBox.Header>
+                        <Border BorderThickness="0" CornerRadius="3" BorderBrush="#FFFFFF" Background="#FFFFFF">
+                            <TextBlock Foreground="#474747" Padding="2" Width="50" TextAlignment="Center" FontWeight="Bold">
+                                Help
+                            </TextBlock>
+                        </Border>
+                    </GroupBox.Header>
+
+
+                    <DockPanel  Margin="0, 30, 0, 0">
+                        <Button Width="100" Height="30" DockPanel.Dock="Top">Instructions</Button>
+                        <TextBlock Foreground="#FFFFFF" FontWeight="Regular" TextWrapping="Wrap" Padding="5"
+                               FontSize="22"
+                                   DockPanel.Dock="Bottom"
+                                   >
+                            Measure pupil and test reflexes.
+                        </TextBlock>
+                    </DockPanel>
+
+                </GroupBox>
+
+                <GroupBox
+                Grid.Column="2"
+                BorderThickness="0"
+                Margin="2.5, 5, 0, 0">
+
+                    <!--TODO: Add Rabbit ID dispay (Rabbit 1, Rabbit 2, even custom names, like Cuddles-->
+
+                </GroupBox>
+
+            </Grid>
+        </GroupBox>
+
+        <GroupBox 
+            Grid.Row="1" 
+            Grid.Column="0"
+            HorizontalAlignment="Stretch" 
+            VerticalAlignment="Stretch"
+            BorderThickness="0"
+            >
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <GroupBox
+                Grid.Column="0"
+                BorderThickness="0"
+                Margin="0, 0, 2.5, 0"
+                Background="#888888"
+                    Opacity="0.8">
+
+                    <!--<GroupBox.Header>
+                        <Border BorderThickness="0" CornerRadius="3" BorderBrush="#FFFFFF" Background="#FFFFFF">
+                            <TextBlock Foreground="#474747" Padding="2" Width="75" TextAlignment="Center" FontWeight="Bold">
+                                Left Eye
+                            </TextBlock>
+                        </Border>
+                    </GroupBox.Header>-->
+
+                    <StackPanel Orientation="Vertical">
+                        <Border BorderThickness="0" Background="#FFFFFF" HorizontalAlignment="Right"
+                                CornerRadius="3" Margin="5, 5, -1.5, 5"
+                                >
+                            <Label HorizontalAlignment="Right" Foreground="#474747"
+                               FontSize="22" 
+                               >
+                                Left Eye
+                            </Label>
+                        </Border>
+
+                        <GroupBox HorizontalAlignment="Right" BorderThickness="0" Background="#FFFFFF">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5, 10, 5, 5">
+                                <Image Source="res/rabbit_profile.jpg" Width="190" Margin="0, 0, 5, 0"></Image>
+                                <Image Source="res/rabbit_profile.jpg" Width="190" Margin="5, 0, 0, 0"></Image>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <Border BorderThickness="0" Background="#FFFFFF"
+                                Margin="10, 10, 0, 10" CornerRadius="3"
+                                >
+                            <StackPanel Orientation="Horizontal">
+                                <Label Width="337" Height="40" Foreground="#474747"
+                                   FontWeight="Bold" FontSize="22"
+                                   HorizontalContentAlignment="Right"
+                                   >
+                                    Drug Acting:
+                                </Label>
+
+                                <Label Width="200" Height="40" Foreground="#474747"
+                                   FontWeight="Regular" FontSize="22"
+                                   >
+                                    Physostigmine
+                                </Label>
+
+                            </StackPanel>
+                        </Border>
+
+                        <Border BorderThickness="0" Background="#FFFFFF" Margin="0" CornerRadius="3" Padding="5,5,5,7">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <Label Width="337" Height="40" Foreground="#474747"
+                                   FontWeight="Bold" FontSize="22" HorizontalContentAlignment="Right"
+                                   VerticalAlignment="Top"
+                                   >
+                                    Intra-ocular tension (i.o.t.):
+                                </Label>
+
+                                <StackPanel Orientation="Vertical" Width="200" VerticalAlignment="Top"
+                                            Margin="0, 12, 0, 0">
+                                    <ProgressBar Width="200" Height="20"
+                                         Value="50" Maximum="100"
+                                         ></ProgressBar>
+
+                                    <Image Source="res/iot_grading.png" Margin="0,2,0,0"></Image>
+                                </StackPanel>
+
+                            </StackPanel>
+                        </Border>
+
                     </StackPanel>
-                    
-                </StackPanel>
-                
-            </GroupBox>
 
-			<GroupBox
+                </GroupBox>
+
+                <GroupBox
+                Grid.Column="1"
                 BorderThickness="0"
-				Grid.Row="0"
-				Grid.Column="2"
-				Background="#FFFFFF"
-				Margin="5, 10, 10, 10"
-				>
+                Margin="2.5, 0, 0, 0"
+                Background="#888888"
+                    Opacity="0.5">
 
+                </GroupBox>
 
-			</GroupBox>
+            </Grid>
 
-            <GroupBox
+        </GroupBox>
+
+        <GroupBox 
+            Grid.Row="2" 
+            Grid.Column="0"
+            HorizontalAlignment="Stretch" 
+            VerticalAlignment="Stretch"
+            BorderThickness="0"
+            >
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <GroupBox
+                Grid.Column="0"
                 BorderThickness="0"
-				Grid.Row="0"
-				Grid.Column="1"
-				Background="#FFFFFF"
-				Margin="5, 10, 5, 10"
-				>
+                Margin="0, 0, 2.5, 0"
+                Background="#555555"
+                Opacity="0.8">
 
+                    <GroupBox.Header>
+                        <Border BorderThickness="0" CornerRadius="3" BorderBrush="#FFFFFF" Background="#FFFFFF">
+                            <TextBlock Foreground="#474747" Padding="2" Width="50" TextAlignment="Center" FontWeight="Bold">
+                                Drug
+                            </TextBlock>
+                        </Border>
+                    </GroupBox.Header>
 
-            </GroupBox>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Image Source="res/icon_drugs.png" Width="50"></Image>
+                        <ComboBox Width="200" Height="30" Margin="30, 0, 0, 0" 
+                                  SelectedIndex="1"
+                                  HorizontalContentAlignment="Center"
+                                  FontSize="16" FontWeight="Bold" Foreground="#474747"
+                                  >
+                            <ComboBoxItem>Physostigmine</ComboBoxItem>
+                            <ComboBoxItem>Ephedrine</ComboBoxItem>
+                            <ComboBoxItem>Atropine</ComboBoxItem>
+                            <ComboBoxItem>Saline</ComboBoxItem>
+                        </ComboBox>
 
-        </Grid> 
-	</Grid>
+                        <Button Width="100" Height="30" 
+                                Margin="30, 0, 0, 0"
+                                FontSize="16" FontWeight="Bold" Foreground="#474747"
+                                >
+                            Administer
+                        </Button>
+
+                    </StackPanel>
+
+                </GroupBox>
+
+                <GroupBox
+                Grid.Column="1"
+                BorderThickness="0"
+                Margin="2.5, 0, 2.5, 0"
+                Background="#555555"
+                Opacity="0.8">
+
+                    <GroupBox.Header>
+                        <Border BorderThickness="0" CornerRadius="3" BorderBrush="#FFFFFF" Background="#FFFFFF">
+                            <TextBlock Foreground="#474747" Padding="2" Width="50" TextAlignment="Center" FontWeight="Bold">
+                                Tools
+                            </TextBlock>
+                        </Border>
+                    </GroupBox.Header>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Width="90" Background="#202020" VerticalContentAlignment="Top"  Margin="10" Style="{DynamicResource FlatButtonStyle}">
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                                <Image Source="res/icon_torch.png" Width="40"></Image>
+                                <TextBlock Width="64" FontSize="12" 
+                                           FontWeight="Bold" Foreground="#FFFFFF"
+                                           TextAlignment="Center"
+                                           >
+                                    Torch
+                                </TextBlock>
+                            </StackPanel>
+
+                        </Button>
+
+                        <Button Width="90" Background="#202020" VerticalContentAlignment="Top" Margin="10">
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                                <Image Source="res/icon_cotton.png" Width="40"></Image>
+                                <TextBlock Width="64" FontSize="12" 
+                                           FontWeight="Bold" Foreground="#FFFFFF"
+                                           TextAlignment="Center"
+                                           >
+                                    Cotton
+                                </TextBlock>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+
+                </GroupBox>
+
+                <GroupBox
+                Grid.Column="2"
+                BorderThickness="0"
+                Margin="2.5, 0, 2.5, 0"
+                Background="#555555"
+                Opacity="0.5">
+
+                </GroupBox>
+
+            </Grid>
+
+        </GroupBox>
+
+    </Grid>
 </Window>
