@@ -111,8 +111,8 @@
                 <GroupBox
                 Grid.Column="0"
                 BorderThickness="0"
-                Margin="0, 0, 2.5, 0"
-                Background="#888888"
+                Margin="0, 10, 2.5, 0"
+                Background="#FFA25A5A"
                     Opacity="0.8">
 
                     <!--<GroupBox.Header>
@@ -127,18 +127,96 @@
                         <Border BorderThickness="0" Background="#FFFFFF" HorizontalAlignment="Right"
                                 CornerRadius="3" Margin="5, 5, -1.5, 5"
                                 >
-                            <Label HorizontalAlignment="Right" Foreground="#474747"
-                               FontSize="22" 
+                            <Label HorizontalAlignment="Right" Foreground="#FAFAFA" Background="#FFFF4242"
+                               FontSize="18" FontWeight="Bold"
                                >
                                 Left Eye
                             </Label>
                         </Border>
 
                         <GroupBox HorizontalAlignment="Right" BorderThickness="0" Background="#FFFFFF">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5, 10, 5, 5">
-                                <Image Source="res/rabbit_profile.jpg" Width="190" Margin="0, 0, 5, 0"></Image>
-                                <Image Source="res/rabbit_profile.jpg" Width="190" Margin="5, 0, 0, 0"></Image>
-                            </StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Image 
+                                    Grid.Column="0"
+                                    Source="res/image_rabbit_profile.png" 
+                                    Width="190" Margin="0, 5, 5, 0"
+                                    ></Image>
+                                <Image 
+                                    Grid.Column="1"
+                                    Source="res/image_rabbit_eye1.png"
+                                    Width="190" Margin="5, 5, 0, 0"
+                                    ></Image>
+
+                                <Border Grid.Column="1"
+                                        Width="75" Height="24"
+                                        BorderThickness="3" Background="Red" CornerRadius="3"
+                                        HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                                        Opacity="0.85"
+                                        >
+
+                                    <TextBlock
+                                        TextAlignment="Center" Foreground="White"
+                                        FontWeight="Bold" FontSize="12"
+                                    >
+                                    Iris: 4 mm
+                                    </TextBlock>
+                                </Border>
+
+                                <Canvas Grid.Column="0">
+                                    <Border
+                                        BorderThickness="3"
+                                        HorizontalAlignment="Left" VerticalAlignment="Top"
+                                        CornerRadius="1"
+                                        >
+
+                                        <Canvas Name="rabbitEyeCanvas" Background="Transparent">
+                                        </Canvas>
+
+                                        <Border.Style>
+                                            <Style TargetType="Border">
+                                                <Setter Property="BorderBrush" Value="Black" />
+                                                <Setter Property="Width" Value="50" />
+                                                <Setter Property="Height" Value="50" />
+                                                <Setter Property="Canvas.Left" Value="75" />
+                                                <Setter Property="Canvas.Top" Value="85" />
+
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ElementName=rabbitEyeCanvas, Path=IsMouseOver}" Value="True">
+                                                        <Setter Property="BorderBrush" Value="Red" />
+                                                        <Setter Property="Width" Value="60" />
+                                                        <Setter Property="Height" Value="60" />
+                                                        <Setter Property="Canvas.Left" Value="70" />
+                                                        <Setter Property="Canvas.Top" Value="80" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+
+                                    </Border>
+                                </Canvas>
+
+                                <Canvas Grid.Column="1">
+                                    <Ellipse
+                                        Width="40" Height="40" Canvas.Left="87" Canvas.Top="103"
+                                        StrokeThickness="2"
+                                        >
+                                        <Ellipse.Fill>
+                                            <SolidColorBrush Color="Red"/>
+                                        </Ellipse.Fill>
+
+                                        <Ellipse.Stroke>
+                                            <SolidColorBrush Color="#555555" Opacity="0.8"></SolidColorBrush>
+                                        </Ellipse.Stroke>
+
+                                    </Ellipse>
+                                </Canvas>
+
+                            </Grid>
                         </GroupBox>
 
                         <Border BorderThickness="0" Background="#FFFFFF"
@@ -189,8 +267,8 @@
                 <GroupBox
                 Grid.Column="1"
                 BorderThickness="0"
-                Margin="2.5, 0, 0, 0"
-                Background="#888888"
+                Margin="2.5, 10, 0, 0"
+                Background="#FF496B9B"
                     Opacity="0.5">
 
                 </GroupBox>
@@ -242,7 +320,7 @@
                             <ComboBoxItem>Saline</ComboBoxItem>
                         </ComboBox>
 
-                        <Button Width="100" Height="30" 
+                        <Button Width="120" Height="30" 
                                 Margin="30, 0, 0, 0"
                                 FontSize="16" FontWeight="Bold" Foreground="#474747"
                                 >
@@ -269,24 +347,25 @@
                     </GroupBox.Header>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Button Width="90" Background="#202020" VerticalContentAlignment="Top"  Margin="10" Style="{DynamicResource FlatButtonStyle}">
-                            <StackPanel Orientation="Vertical" VerticalAlignment="Top">
-                                <Image Source="res/icon_torch.png" Width="40"></Image>
-                                <TextBlock Width="64" FontSize="12" 
-                                           FontWeight="Bold" Foreground="#FFFFFF"
+                        <Button Name="toolTorch" Width="90" VerticalContentAlignment="Top"  Margin="10" Tag="{Binding Code}">
+                            <Button.Content>
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                                    <Image Source="res/icon_torch.png" Width="40"></Image>
+                                    <TextBlock Width="64" FontSize="12" 
+                                           FontWeight="Bold" Foreground="#474747"
                                            TextAlignment="Center"
                                            >
                                     Torch
-                                </TextBlock>
-                            </StackPanel>
-
+                                    </TextBlock>
+                                </StackPanel>
+                            </Button.Content>
                         </Button>
 
-                        <Button Width="90" Background="#202020" VerticalContentAlignment="Top" Margin="10">
+                        <Button Name="toolCotton" Width="90" VerticalContentAlignment="Top" Margin="10" Tag="{Binding Code}">
                             <StackPanel Orientation="Vertical" VerticalAlignment="Top">
                                 <Image Source="res/icon_cotton.png" Width="40"></Image>
                                 <TextBlock Width="64" FontSize="12" 
-                                           FontWeight="Bold" Foreground="#FFFFFF"
+                                           FontWeight="Bold" Foreground="#474747"
                                            TextAlignment="Center"
                                            >
                                     Cotton
@@ -302,7 +381,55 @@
                 BorderThickness="0"
                 Margin="2.5, 0, 2.5, 0"
                 Background="#555555"
-                Opacity="0.5">
+                Opacity="0.8">
+
+                    <GroupBox.Header>
+                        <Border BorderThickness="0" CornerRadius="3" BorderBrush="#FFFFFF" Background="#FFFFFF">
+                            <TextBlock Foreground="#474747" Padding="2" Width="60" TextAlignment="Center" FontWeight="Bold">
+                                Options
+                            </TextBlock>
+                        </Border>
+                    </GroupBox.Header>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Width="100" Height="30"
+                                Grid.Row="0" Grid.Column="0"
+                                FontSize="16" FontWeight="Bold" Foreground="#474747"
+                                >
+                            New
+                        </Button>
+
+                        <Button Width="100" Height="30"
+                                Grid.Row="0" Grid.Column="1"
+                                FontSize="16" FontWeight="Bold" Foreground="#474747"
+                                >
+                            Table
+                        </Button>
+
+                        <Button Width="100" Height="30"
+                                Grid.Row="1" Grid.Column="0"
+                                FontSize="16" FontWeight="Bold" Foreground="#474747"
+                                >
+                            Next
+                        </Button>
+
+                        <Button Width="100" Height="30"
+                                Grid.Row="1" Grid.Column="1"
+                                FontSize="16" FontWeight="Bold" Foreground="#474747"
+                                >
+                            Return
+                        </Button>
+
+                    </Grid>
 
                 </GroupBox>
 

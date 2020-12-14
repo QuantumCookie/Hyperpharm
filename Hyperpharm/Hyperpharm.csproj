@@ -64,6 +64,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Tool.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -109,6 +110,19 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="res\icon_cotton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\image_rabbit_eye.png" />
+    <Resource Include="res\image_rabbit_profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\image_rabbit_eye1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\cursor_torch.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\cursor_cotton.cur" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
