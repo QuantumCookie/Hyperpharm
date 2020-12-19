@@ -97,9 +97,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="res\rabbit_profile.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="res\iot_grading.png" />
   </ItemGroup>
   <ItemGroup>
@@ -112,17 +109,17 @@
     <Resource Include="res\icon_cotton.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="res\image_rabbit_eye.png" />
     <Resource Include="res\image_rabbit_profile.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="res\image_rabbit_eye1.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="res\cursor_torch.cur" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="res\cursor_cotton.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\image_rabbiteye_closed.png" />
+    <Resource Include="res\image_rabbiteye_open.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

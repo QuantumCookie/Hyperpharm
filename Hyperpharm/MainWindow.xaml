@@ -5,437 +5,569 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hyperpharm"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="1100" Background="#202020" ResizeMode="NoResize">
+        Title="Hyperpharm v0.2" Height="700" Width="1100" Background="#202020" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"></RowDefinition>
-            <RowDefinition Height="5*"></RowDefinition>
-            <RowDefinition Height="1.5*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <GroupBox 
-            Grid.Row="0" 
-            Grid.Column="0"
-            HorizontalAlignment="Stretch" 
-            VerticalAlignment="Stretch"
+        <Border
+            Grid.Row="0"
+            Height="50"
+            Background="#303030"
             BorderThickness="0"
+            Margin="0, 0, 0, 5"
             >
 
             <Grid>
+
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="5*"></ColumnDefinition>
-                    <ColumnDefinition Width="4*"></ColumnDefinition>
-                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <GroupBox
-                Grid.Column="0"
-                BorderThickness="0"
-                Margin="0, 5, 2.5, 0"
-                Background="#555555"
-                    Opacity="0.8">
+                <Label 
+                    Grid.Column="0"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    FontSize="20" FontWeight="Bold" Foreground="#DDDDDD">
+                    Rabbit Experiment
+                </Label>
 
-                    <GroupBox.Header>
-                        <Border BorderThickness="0" CornerRadius="3" BorderBrush="#FFFFFF" Background="#FFFFFF">
-                            <TextBlock Foreground="#474747" Padding="2" Width="75" TextAlignment="Center" FontWeight="Bold">
-                                Direction
-                            </TextBlock>
-                        </Border>
-                    </GroupBox.Header>
-
-                    <TextBlock Foreground="#FFFFFF" FontWeight="Regular" TextWrapping="Wrap" Padding="10"
-                               FontSize="22">
-                        Instill drugs one by one and observe their effects on the rabbit's eye. 
-                        Tabulate the data and draw conclusions.
-                    </TextBlock>
-
-                </GroupBox>
-
-                <GroupBox
-                Grid.Column="1"
-                BorderThickness="0"
-                Margin="2.5, 5, 2.5, 0"
-                Background="#555555"
-                    Opacity="0.8">
-
-                    <GroupBox.Header>
-                        <Border BorderThickness="0" CornerRadius="3" BorderBrush="#FFFFFF" Background="#FFFFFF">
-                            <TextBlock Foreground="#474747" Padding="2" Width="50" TextAlignment="Center" FontWeight="Bold">
-                                Help
-                            </TextBlock>
-                        </Border>
-                    </GroupBox.Header>
-
-
-                    <DockPanel  Margin="0, 30, 0, 0">
-                        <Button Width="100" Height="30" DockPanel.Dock="Top">Instructions</Button>
-                        <TextBlock Foreground="#FFFFFF" FontWeight="Regular" TextWrapping="Wrap" Padding="5"
-                               FontSize="22"
-                                   DockPanel.Dock="Bottom"
-                                   >
-                            Measure pupil and test reflexes.
-                        </TextBlock>
-                    </DockPanel>
-
-                </GroupBox>
-
-                <GroupBox
-                Grid.Column="2"
-                BorderThickness="0"
-                Margin="2.5, 5, 0, 0">
-
-                    <!--TODO: Add Rabbit ID dispay (Rabbit 1, Rabbit 2, even custom names, like Cuddles-->
-
-                </GroupBox>
+                <Button 
+                    Grid.Column="1"
+                    Width="20" Height="20"
+                    FontWeight="Bold" Margin="10"
+                    >
+                    ?
+                </Button>
 
             </Grid>
-        </GroupBox>
 
-        <GroupBox 
-            Grid.Row="1" 
-            Grid.Column="0"
-            HorizontalAlignment="Stretch" 
-            VerticalAlignment="Stretch"
+        </Border>
+
+        <Border
+            Grid.Row="1"
+            Background="#303030"
             BorderThickness="0"
+            
+            Margin="0, 0, 0, 5"
             >
 
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"></ColumnDefinition>
-                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <GroupBox
-                Grid.Column="0"
-                BorderThickness="0"
-                Margin="0, 10, 2.5, 0"
-                Background="#FFA25A5A"
-                    Opacity="0.8">
+                <!--Experimental rabbit (Left side)-->
+                <Border
+                    Grid.Column="0"
+                    BorderThickness="0"
+                    Margin="0, 0, 5, 0"
+                    >
 
-                    <!--<GroupBox.Header>
-                        <Border BorderThickness="0" CornerRadius="3" BorderBrush="#FFFFFF" Background="#FFFFFF">
-                            <TextBlock Foreground="#474747" Padding="2" Width="75" TextAlignment="Center" FontWeight="Bold">
-                                Left Eye
-                            </TextBlock>
-                        </Border>
-                    </GroupBox.Header>-->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
 
-                    <StackPanel Orientation="Vertical">
-                        <Border BorderThickness="0" Background="#FFFFFF" HorizontalAlignment="Right"
-                                CornerRadius="3" Margin="5, 5, -1.5, 5"
-                                >
-                            <Label HorizontalAlignment="Right" Foreground="#FAFAFA" Background="#FFFF4242"
-                               FontSize="18" FontWeight="Bold"
-                               >
-                                Left Eye
-                            </Label>
+                        <Border Background="#474747" Height="30">
+                            <TextBlock 
+                                Text="Experimental Rabbit"
+                                FontWeight="Bold" Foreground="#FFFFFF"
+                                VerticalAlignment="Center" Padding="10"/>
                         </Border>
 
-                        <GroupBox HorizontalAlignment="Right" BorderThickness="0" Background="#FFFFFF">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"
+                                    Grid.Row="1">
+                            <Border Background="#474747" Width="200" Height="200" Margin="10, 10, 5, 10">
+                                <Image Source="res/image_rabbiteye_open.png"
+                                       Margin="5"
+                               ></Image>
+                            </Border>
+
+                            <Border Background="#474747" Width="200" Height="200" Margin="5, 10, 0, 10">
+                                <Image Source="res/image_rabbit_profile.png"
+                                       Margin="5"
+                               ></Image>
+                            </Border>
+
+                        </StackPanel>
+
+                        <Border Background="#474747"
+                                    Height="40"
+                                    Grid.Row="2"
+                                    HorizontalAlignment="Stretch">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="1">
+                                <Label VerticalAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="#FFFFFF">
+                                    Drug Acting:
+                                </Label>
+
+                                <Label VerticalAlignment="Top" Margin="0, 0, 5 0" FontSize="16" FontStyle="Italic">
+                                    <Label.Content>
+                                        <TextBox IsEnabled="False" Width="150">Physostigmine</TextBox>
+                                    </Label.Content>
+                                </Label>
+
+                                <Button Width="100" Height="30" Margin="0, 0, 5 0" VerticalAlignment="Center">New Drug</Button>
+
+                                <Button Width="100" Height="30" Margin="0, 0, 5 0" VerticalAlignment="Center">New Rabbit</Button>
+
+                            </StackPanel>
+                        </Border>
+
+                        <Border Margin="5, 5, 0, 5" Grid.Row="3">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition></ColumnDefinition>
                                     <ColumnDefinition></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
 
-                                <Image 
-                                    Grid.Column="0"
-                                    Source="res/image_rabbit_profile.png" 
-                                    Width="190" Margin="0, 5, 5, 0"
-                                    ></Image>
-                                <Image 
-                                    Grid.Column="1"
-                                    Source="res/image_rabbit_eye1.png"
-                                    Width="190" Margin="5, 5, 0, 0"
-                                    ></Image>
+                                <Border Background="#474747" Margin="5, 5, 2.5, 5">
+                                    <StackPanel Orientation="Vertical" Margin="5">
+                                        <StackPanel.Resources>
+                                            <Style x:Key="DataHeaderStyle" TargetType="TextBlock">
+                                                <Setter Property="FontWeight" Value="Bold" />
+                                                <Setter Property="Foreground" Value="#FFFFFF" />
+                                                <Setter Property="Padding" Value="10" />
+                                                <Setter Property="VerticalAlignment" Value="Center" />
+                                            </Style>
 
-                                <Border Grid.Column="1"
-                                        Width="75" Height="24"
-                                        BorderThickness="3" Background="Red" CornerRadius="3"
-                                        HorizontalAlignment="Left" VerticalAlignment="Bottom"
-                                        Opacity="0.85"
-                                        >
 
-                                    <TextBlock
-                                        TextAlignment="Center" Foreground="White"
-                                        FontWeight="Bold" FontSize="12"
-                                    >
-                                    Iris: 4 mm
-                                    </TextBlock>
+                                            <Style x:Key="DataValueStyle" TargetType="TextBlock" BasedOn="{StaticResource DataHeaderStyle}">
+                                                <Setter Property="FontWeight" Value="Regular" />
+                                                <Setter Property="Padding" Value="30, 10, 10, 10" />
+                                                <Setter Property="FontStyle" Value="Oblique" />
+                                                <Setter Property="Opacity" Value="0.8" />
+                                            </Style>
+
+                                            <Style x:Key="TopLevelHeaderStyle" TargetType="TextBlock" BasedOn="{StaticResource DataHeaderStyle}">
+                                                <Setter Property="FontSize" Value="16" />
+                                                <Setter Property="Foreground" Value="#FFEEB36C" />
+                                            </Style>
+
+                                            <Style x:Key="TopLevelBorderStyle" TargetType="Border">
+                                                <Setter Property="Background" Value="#202020" />
+                                                <Setter Property="Height" Value="30" />
+                                            </Style>
+
+                                            <Style x:Key="HeaderBorderStyle" TargetType="Border">
+                                                <Setter Property="Background" Value="#303030" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+
+                                            <Style x:Key="ValueBorderStyle" TargetType="Border">
+                                                <Setter Property="Background" Value="#505050" />
+                                                <Setter Property="Height" Value="25" />
+                                            </Style>
+
+                                        </StackPanel.Resources>
+
+
+                                        <Border Style="{StaticResource TopLevelBorderStyle}">
+                                            <TextBlock 
+                                                Text="Parameters"
+                                                Style="{StaticResource TopLevelHeaderStyle}"
+                                                />
+                                        </Border>
+
+                                        <Border Style="{StaticResource HeaderBorderStyle}">
+                                            <TextBlock 
+                                                Text="Drug"
+                                                Style="{StaticResource DataHeaderStyle}"
+                                                />
+                                        </Border>
+
+                                        <Border Style="{StaticResource ValueBorderStyle}">
+                                            <TextBlock 
+                                                Text="Physostigmine"
+                                                Style="{StaticResource DataValueStyle}"
+                                                />
+                                        </Border>
+
+                                        <Border Style="{StaticResource HeaderBorderStyle}">
+                                            <TextBlock 
+                                                Text="Corneal Reflex"
+                                                Style="{StaticResource DataHeaderStyle}"
+                                                />
+                                        </Border>
+
+                                        <Border Style="{StaticResource ValueBorderStyle}">
+                                            <TextBlock 
+                                                Text="Not Recorded"
+                                                Style="{StaticResource DataValueStyle}"
+                                                />
+                                        </Border>
+
+                                        <Border Style="{StaticResource HeaderBorderStyle}">
+                                            <TextBlock 
+                                                Text="Light Reflex"
+                                                Style="{StaticResource DataHeaderStyle}"
+                                                />
+                                        </Border>
+
+                                        <Border Style="{StaticResource ValueBorderStyle}">
+                                            <TextBlock 
+                                                Text="Not Recorded"
+                                                Style="{StaticResource DataValueStyle}"
+                                                />
+                                        </Border>
+
+                                        <Border Style="{StaticResource HeaderBorderStyle}">
+                                            <TextBlock 
+                                                Text="Intraocular Tension"
+                                                Style="{StaticResource DataHeaderStyle}"
+                                                />
+                                        </Border>
+
+                                        <Border Style="{StaticResource ValueBorderStyle}">
+                                            <TextBlock 
+                                                Text="Not Recorded"
+                                                Style="{StaticResource DataValueStyle}"
+                                                />
+                                        </Border>
+
+                                        <Border Style="{StaticResource HeaderBorderStyle}">
+                                            <TextBlock 
+                                                Text="Pupil Diameter"
+                                                Style="{StaticResource DataHeaderStyle}"
+                                                />
+                                        </Border>
+
+                                        <Border Style="{StaticResource ValueBorderStyle}">
+                                            <TextBlock 
+                                                Text="Not Recorded"
+                                                Style="{StaticResource DataValueStyle}"
+                                                />
+                                        </Border>
+
+                                        <Border Style="{StaticResource ValueBorderStyle}"
+                                                HorizontalAlignment="Right" Margin="0, 3, 3, 0">
+                                            <Button Width="100">Record</Button>
+                                        </Border>
+
+                                    </StackPanel>
                                 </Border>
 
-                                <Canvas Grid.Column="0">
-                                    <Border
-                                        BorderThickness="3"
-                                        HorizontalAlignment="Left" VerticalAlignment="Top"
-                                        CornerRadius="1"
-                                        >
+                                <Border Background="#474747" Margin="5, 5, 2.5, 5"
+                                        Grid.Column="1">
 
-                                        <Canvas Name="rabbitEyeCanvas" Background="Transparent">
-                                        </Canvas>
+                                    <Grid Margin="5">
 
-                                        <Border.Style>
-                                            <Style TargetType="Border">
-                                                <Setter Property="BorderBrush" Value="Black" />
-                                                <Setter Property="Width" Value="50" />
-                                                <Setter Property="Height" Value="50" />
-                                                <Setter Property="Canvas.Left" Value="75" />
-                                                <Setter Property="Canvas.Top" Value="85" />
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
 
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding ElementName=rabbitEyeCanvas, Path=IsMouseOver}" Value="True">
-                                                        <Setter Property="BorderBrush" Value="Red" />
-                                                        <Setter Property="Width" Value="60" />
-                                                        <Setter Property="Height" Value="60" />
-                                                        <Setter Property="Canvas.Left" Value="70" />
-                                                        <Setter Property="Canvas.Top" Value="80" />
-                                                    </DataTrigger>
-                                                </Style.Triggers>
+                                        <Grid.Resources>
+                                            <Style x:Key="DataHeaderStyle" TargetType="TextBlock">
+                                                <Setter Property="FontWeight" Value="Bold" />
+                                                <Setter Property="Foreground" Value="#FFFFFF" />
+                                                <Setter Property="Padding" Value="10" />
+                                                <Setter Property="VerticalAlignment" Value="Center" />
                                             </Style>
-                                        </Border.Style>
 
-                                    </Border>
-                                </Canvas>
+                                            <Style x:Key="TopLevelHeaderStyle" TargetType="TextBlock">
+                                                <Setter Property="FontWeight" Value="Bold" />
+                                                <Setter Property="Padding" Value="10" />
+                                                <Setter Property="VerticalAlignment" Value="Center" />
+                                                <Setter Property="FontSize" Value="16" />
+                                                <Setter Property="Foreground" Value="#FFEEB36C" />
+                                            </Style>
 
-                                <Canvas Grid.Column="1">
-                                    <Ellipse
-                                        Width="40" Height="40" Canvas.Left="87" Canvas.Top="103"
-                                        StrokeThickness="2"
-                                        >
-                                        <Ellipse.Fill>
-                                            <SolidColorBrush Color="Red"/>
-                                        </Ellipse.Fill>
+                                            <Style x:Key="TopLevelBorderStyle" TargetType="Border">
+                                                <Setter Property="Background" Value="#202020" />
+                                                <Setter Property="Height" Value="30" />
+                                            </Style>
 
-                                        <Ellipse.Stroke>
-                                            <SolidColorBrush Color="#555555" Opacity="0.8"></SolidColorBrush>
-                                        </Ellipse.Stroke>
+                                            <Style x:Key="DetailsPanelStyle" TargetType="TextBlock">
+                                                <Setter Property="Foreground" Value="#FFFFFF" />
+                                                <Setter Property="TextWrapping" Value="Wrap" />
+                                                <Setter Property="Padding" Value="10" />
+                                            </Style>
 
-                                    </Ellipse>
-                                </Canvas>
+                                            <Style x:Key="DetailsPanelBorderStyle" TargetType="Border">
+                                                <Setter Property="Background" Value="#303030"/>
+                                            </Style>
+
+                                        </Grid.Resources>
+
+
+                                        <Border Style="{StaticResource TopLevelBorderStyle}">
+                                            <TextBlock 
+                                                Text="Details"
+                                                Style="{StaticResource TopLevelHeaderStyle}"
+                                                />
+                                        </Border>
+
+                                        <Border
+                                            Grid.Row="1"
+                                            Style="{StaticResource DetailsPanelBorderStyle}">
+
+                                            <TextBlock
+                                                Text="The properties of the currently administered drug."
+                                                Style="{StaticResource DetailsPanelStyle}" />
+
+                                        </Border>
+
+                                    </Grid>
+
+                                </Border>
 
                             </Grid>
-                        </GroupBox>
-
-                        <Border BorderThickness="0" Background="#FFFFFF"
-                                Margin="10, 10, 0, 10" CornerRadius="3"
-                                >
-                            <StackPanel Orientation="Horizontal">
-                                <Label Width="337" Height="40" Foreground="#474747"
-                                   FontWeight="Bold" FontSize="22"
-                                   HorizontalContentAlignment="Right"
-                                   >
-                                    Drug Acting:
-                                </Label>
-
-                                <Label Width="200" Height="40" Foreground="#474747"
-                                   FontWeight="Regular" FontSize="22"
-                                   >
-                                    Physostigmine
-                                </Label>
-
-                            </StackPanel>
                         </Border>
 
-                        <Border BorderThickness="0" Background="#FFFFFF" Margin="0" CornerRadius="3" Padding="5,5,5,7">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <Label Width="337" Height="40" Foreground="#474747"
-                                   FontWeight="Bold" FontSize="22" HorizontalContentAlignment="Right"
-                                   VerticalAlignment="Top"
-                                   >
-                                    Intra-ocular tension (i.o.t.):
-                                </Label>
+                    </Grid>
+                </Border>
 
-                                <StackPanel Orientation="Vertical" Width="200" VerticalAlignment="Top"
-                                            Margin="0, 12, 0, 0">
-                                    <ProgressBar Width="200" Height="20"
-                                         Value="50" Maximum="100"
-                                         ></ProgressBar>
-
-                                    <Image Source="res/iot_grading.png" Margin="0,2,0,0"></Image>
-                                </StackPanel>
-
-                            </StackPanel>
-                        </Border>
-
-                    </StackPanel>
-
-                </GroupBox>
-
-                <GroupBox
-                Grid.Column="1"
-                BorderThickness="0"
-                Margin="2.5, 10, 0, 0"
-                Background="#FF496B9B"
-                    Opacity="0.5">
-
-                </GroupBox>
-
-            </Grid>
-
-        </GroupBox>
-
-        <GroupBox 
-            Grid.Row="2" 
-            Grid.Column="0"
-            HorizontalAlignment="Stretch" 
-            VerticalAlignment="Stretch"
-            BorderThickness="0"
-            >
-
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="4*"></ColumnDefinition>
-                    <ColumnDefinition Width="2*"></ColumnDefinition>
-                    <ColumnDefinition Width="3*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-
-                <GroupBox
-                Grid.Column="0"
-                BorderThickness="0"
-                Margin="0, 0, 2.5, 0"
-                Background="#555555"
-                Opacity="0.8">
-
-                    <GroupBox.Header>
-                        <Border BorderThickness="0" CornerRadius="3" BorderBrush="#FFFFFF" Background="#FFFFFF">
-                            <TextBlock Foreground="#474747" Padding="2" Width="50" TextAlignment="Center" FontWeight="Bold">
-                                Drug
-                            </TextBlock>
-                        </Border>
-                    </GroupBox.Header>
-
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Image Source="res/icon_drugs.png" Width="50"></Image>
-                        <ComboBox Width="200" Height="30" Margin="30, 0, 0, 0" 
-                                  SelectedIndex="1"
-                                  HorizontalContentAlignment="Center"
-                                  FontSize="16" FontWeight="Bold" Foreground="#474747"
-                                  >
-                            <ComboBoxItem>Physostigmine</ComboBoxItem>
-                            <ComboBoxItem>Ephedrine</ComboBoxItem>
-                            <ComboBoxItem>Atropine</ComboBoxItem>
-                            <ComboBoxItem>Saline</ComboBoxItem>
-                        </ComboBox>
-
-                        <Button Width="120" Height="30" 
-                                Margin="30, 0, 0, 0"
-                                FontSize="16" FontWeight="Bold" Foreground="#474747"
-                                >
-                            Administer
-                        </Button>
-
-                    </StackPanel>
-
-                </GroupBox>
-
-                <GroupBox
-                Grid.Column="1"
-                BorderThickness="0"
-                Margin="2.5, 0, 2.5, 0"
-                Background="#555555"
-                Opacity="0.8">
-
-                    <GroupBox.Header>
-                        <Border BorderThickness="0" CornerRadius="3" BorderBrush="#FFFFFF" Background="#FFFFFF">
-                            <TextBlock Foreground="#474747" Padding="2" Width="50" TextAlignment="Center" FontWeight="Bold">
-                                Tools
-                            </TextBlock>
-                        </Border>
-                    </GroupBox.Header>
-
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Button Name="toolTorch" Width="90" VerticalContentAlignment="Top"  Margin="10" Tag="{Binding Code}">
-                            <Button.Content>
-                                <StackPanel Orientation="Vertical" VerticalAlignment="Top">
-                                    <Image Source="res/icon_torch.png" Width="40"></Image>
-                                    <TextBlock Width="64" FontSize="12" 
-                                           FontWeight="Bold" Foreground="#474747"
-                                           TextAlignment="Center"
-                                           >
-                                    Torch
-                                    </TextBlock>
-                                </StackPanel>
-                            </Button.Content>
-                        </Button>
-
-                        <Button Name="toolCotton" Width="90" VerticalContentAlignment="Top" Margin="10" Tag="{Binding Code}">
-                            <StackPanel Orientation="Vertical" VerticalAlignment="Top">
-                                <Image Source="res/icon_cotton.png" Width="40"></Image>
-                                <TextBlock Width="64" FontSize="12" 
-                                           FontWeight="Bold" Foreground="#474747"
-                                           TextAlignment="Center"
-                                           >
-                                    Cotton
-                                </TextBlock>
-                            </StackPanel>
-                        </Button>
-                    </StackPanel>
-
-                </GroupBox>
-
-                <GroupBox
-                Grid.Column="2"
-                BorderThickness="0"
-                Margin="2.5, 0, 2.5, 0"
-                Background="#555555"
-                Opacity="0.8">
-
-                    <GroupBox.Header>
-                        <Border BorderThickness="0" CornerRadius="3" BorderBrush="#FFFFFF" Background="#FFFFFF">
-                            <TextBlock Foreground="#474747" Padding="2" Width="60" TextAlignment="Center" FontWeight="Bold">
-                                Options
-                            </TextBlock>
-                        </Border>
-                    </GroupBox.Header>
+                <!--Control rabbit (Right side)-->
+                <Border
+                    Grid.Column="1"
+                    Margin="0, 0, 5, 0"
+                    >
 
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
 
-                        <Button Width="100" Height="30"
-                                Grid.Row="0" Grid.Column="0"
-                                FontSize="16" FontWeight="Bold" Foreground="#474747"
-                                >
-                            New
-                        </Button>
+                        <Border Background="#474747" Height="30">
+                            <TextBlock 
+                                Text="Experimental Rabbit"
+                                FontWeight="Bold" Foreground="#FFFFFF"
+                                VerticalAlignment="Center" Padding="10"/>
+                        </Border>
 
-                        <Button Width="100" Height="30"
-                                Grid.Row="0" Grid.Column="1"
-                                FontSize="16" FontWeight="Bold" Foreground="#474747"
-                                >
-                            Table
-                        </Button>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"
+                                    Grid.Row="1" FlowDirection="RightToLeft">
+                            <Border Background="#474747" Width="200" Height="200" Margin="10, 10, 5, 10">
+                                <Image Source="res/image_rabbiteye_open.png"
+                                       Margin="5" RenderTransformOrigin="0.5,0.5"
+                               >
+                                    <Image.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="-1"/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Image.RenderTransform>
+                                </Image>
+                            </Border>
 
-                        <Button Width="100" Height="30"
-                                Grid.Row="1" Grid.Column="0"
-                                FontSize="16" FontWeight="Bold" Foreground="#474747"
-                                >
-                            Next
-                        </Button>
+                            <Border Background="#474747" Width="200" Height="200" Margin="5, 10, 0, 10">
+                                <Image Source="res/image_rabbit_profile.png"
+                                       Margin="5" RenderTransformOrigin="0.5,0.5"
+                               >
+                                    <Image.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="-1"/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Image.RenderTransform>
+                                </Image>
+                            </Border>
 
-                        <Button Width="100" Height="30"
-                                Grid.Row="1" Grid.Column="1"
-                                FontSize="16" FontWeight="Bold" Foreground="#474747"
-                                >
-                            Return
-                        </Button>
+                        </StackPanel>
+
+                        <Border Background="#474747"
+                                    Height="80"
+                                    Grid.Row="2"
+                                    HorizontalAlignment="Stretch">
+
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="1">
+                                    <Label FontSize="18" FontWeight="Bold" Foreground="#FFFFFF">
+                                        Drug Acting:
+                                    </Label>
+
+                                    <Label Margin="0, 0, 5 0" FontSize="16" FontStyle="Italic">
+                                        <Label.Content>
+                                            <TextBox IsEnabled="False" Width="150">Physostigmine</TextBox>
+                                        </Label.Content>
+                                    </Label>
+
+                                    <Button Width="100" Height="30" Margin="0, 0, 5 0" >New Drug</Button>
+
+                                    <Button Width="100" Height="30" Margin="0, 0, 5 0" >New Rabbit</Button>
+
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="40" Margin="5">
+                                    <Label FontSize="18" FontWeight="Bold" Foreground="#FFFFFF">
+                                        Intraocular Tension:
+                                    </Label>
+
+                                    <ProgressBar Width="200" Height="15" Value="50">
+
+                                    </ProgressBar>
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </Border>
+
+                        <Border Margin="0, 5, 0, 0" Grid.Row="3">
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Background="#474747"
+                                        Grid.Column="0">
+
+                                    <Grid Margin="5">
+
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.Resources>
+                                            
+                                            <Style x:Key="TopLevelHeaderStyle" TargetType="TextBlock">
+                                                <Setter Property="FontWeight" Value="Bold" />
+                                                <Setter Property="Padding" Value="10" />
+                                                <Setter Property="VerticalAlignment" Value="Center" />
+                                                <Setter Property="FontSize" Value="16" />
+                                                <Setter Property="Foreground" Value="#FFEEB36C" />
+                                            </Style>
+
+                                            <Style x:Key="TopLevelBorderStyle" TargetType="Border">
+                                                <Setter Property="Background" Value="#202020" />
+                                                <Setter Property="Height" Value="30" />
+                                            </Style>
+
+                                            <Style x:Key="ToolsPanelBorderStyle" TargetType="Border">
+                                                <Setter Property="Background" Value="#303030"/>
+                                            </Style>
+
+                                        </Grid.Resources>
+
+
+                                        <Border Style="{StaticResource TopLevelBorderStyle}">
+                                            <TextBlock 
+                                                Text="Tools"
+                                                Style="{StaticResource TopLevelHeaderStyle}"
+                                                />
+                                        </Border>
+
+                                        <Border
+                                            Grid.Row="1"
+                                            Style="{StaticResource ToolsPanelBorderStyle}">
+
+                                            <WrapPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                                <Button Width="100" Height="50" Margin="10">Torch</Button>
+                                                <Button Width="100" Height="50" Margin="10">Cotton</Button>
+                                                <Button Width="100" Height="50" Margin="10">Ruler</Button>
+                                            </WrapPanel>
+
+                                        </Border>
+
+                                    </Grid>
+
+                                </Border>
+
+                                <Border Background="#474747"
+                                        Grid.Column="1">
+
+                                    <Grid Margin="5">
+
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.Resources>
+
+                                            <Style x:Key="TopLevelHeaderStyle" TargetType="TextBlock">
+                                                <Setter Property="FontWeight" Value="Bold" />
+                                                <Setter Property="Padding" Value="10" />
+                                                <Setter Property="VerticalAlignment" Value="Center" />
+                                                <Setter Property="FontSize" Value="16" />
+                                                <Setter Property="Foreground" Value="#FFEEB36C" />
+                                            </Style>
+
+                                            <Style x:Key="TopLevelBorderStyle" TargetType="Border">
+                                                <Setter Property="Background" Value="#202020" />
+                                                <Setter Property="Height" Value="30" />
+                                            </Style>
+
+                                            <Style x:Key="ToolsPanelBorderStyle" TargetType="Border">
+                                                <Setter Property="Background" Value="#303030"/>
+                                            </Style>
+
+                                        </Grid.Resources>
+
+
+                                        <Border Style="{StaticResource TopLevelBorderStyle}">
+                                            <TextBlock 
+                                                Text="Options"
+                                                Style="{StaticResource TopLevelHeaderStyle}"
+                                                />
+                                        </Border>
+
+                                        <Border
+                                            Grid.Row="1"
+                                            Style="{StaticResource ToolsPanelBorderStyle}">
+
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                </Grid.RowDefinitions>
+
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Button 
+                                                    Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+                                                    Margin="10">Next Rabbit</Button>
+                                                <Button 
+                                                    Grid.Row="0" Grid.Column="1"
+                                                    Margin="10">Reset</Button>
+                                                <Button 
+                                                    Grid.Row="1" Grid.Column="1"
+                                                    Margin="10">Restart</Button>
+                                                <Button 
+                                                    Grid.Row="2" Grid.Column="0"
+                                                    Margin="10">Table</Button>
+                                                <Button 
+                                                    Grid.Row="2" Grid.Column="1"
+                                                    Margin="10">Exit</Button>
+
+                                            </Grid>
+
+                                        </Border>
+
+                                    </Grid>
+
+                                </Border>
+
+                            </Grid>
+                            
+                        </Border>
 
                     </Grid>
 
-                </GroupBox>
+                </Border>
 
             </Grid>
 
-        </GroupBox>
-
+        </Border>
     </Grid>
 </Window>

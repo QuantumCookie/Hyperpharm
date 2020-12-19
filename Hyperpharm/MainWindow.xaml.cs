@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,19 +17,44 @@ using System.Windows.Shapes;
 
 namespace Hyperpharm
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
-        private Tool activeTool;
+        private Tool _activeTool;
+
+        public Tool ActiveTool
+        {
+            get { return _activeTool; }
+            set { _activeTool = value; OnPropertyRaised("ActiveTool"); }
+        }
+
+        private bool _canHighlightEye;
+        public bool CanHighlightEye
+        {
+            get { return _canHighlightEye; }
+            set { _canHighlightEye = value; OnPropertyRaised("CanHighlightEye"); }
+        }
+
+        private bool _lightReflexActive;
+        public bool LightReflexActive
+        {
+            get { return _lightReflexActive; }
+            set { _lightReflexActive = value; OnPropertyRaised("LightReflexActive"); }
+        }
 
         private Cursor cursorDefault;
         private Cursor cursorTorch;
         private Cursor cursorCotton;
 
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyRaised(string propertyName) { PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName)); }
+
         public MainWindow()
         {
             InitializeComponent();
 
-            activeTool = Tool.NONE;
+            ActiveTool = Tool.NONE;
+            CanHighlightEye = false;
+            LightReflexActive = true;
 
             cursorDefault = Cursors.Arrow;
             cursorCotton = new Cursor(Application.GetResourceStream(
@@ -37,31 +64,34 @@ namespace Hyperpharm
             new Uri("res/cursor_torch.cur", UriKind.Relative)).Stream
             );
 
-            toolTorch.Click += TorchButtonClick;
-            toolCotton.Click += CottonButtonClick;
+            //toolTorch.Click += TorchButtonClick;
+            //toolCotton.Click += CottonButtonClick;
         }
 
         private void ToolClicked(Tool tool)
         {
-            if(tool == activeTool)
+            if(tool == ActiveTool)
             {
                 this.Cursor = cursorDefault;
-                activeTool = Tool.NONE;
+                ActiveTool = Tool.NONE;
+                CanHighlightEye = false;
                 return;
             }
             else
             {
-                activeTool = tool;
+                ActiveTool = tool;
             }
 
-            switch(activeTool)
+            switch(ActiveTool)
             {
                 case Tool.TORCH:
                     this.Cursor = cursorTorch;
+                    CanHighlightEye = true;
                     break;
 
                 case Tool.COTTON:
                     this.Cursor = cursorCotton;
+                    CanHighlightEye = true;
                     break;
 
                 default:
