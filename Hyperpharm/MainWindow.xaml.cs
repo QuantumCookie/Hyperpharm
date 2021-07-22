@@ -41,6 +41,22 @@ namespace Hyperpharm
             set { _lightReflexActive = value; OnPropertyRaised("LightReflexActive"); }
         }
 
+        private bool _cornealReflexActive;
+        public bool CornealReflexActive
+        {
+            get { return _cornealReflexActive; }
+            set { _cornealReflexActive = value; OnPropertyRaised("CornealReflexActive"); }
+        }
+
+        private float _pupilDiameter;
+        private float lastPupilDiameter;
+
+        public float PupilDiameter
+        {
+            get { return _pupilDiameter; }
+            set { _pupilDiameter= value; OnPropertyRaised("PupilDiameter"); }
+        }
+
         private Cursor cursorDefault;
         private Cursor cursorTorch;
         private Cursor cursorCotton;
@@ -55,6 +71,7 @@ namespace Hyperpharm
             ActiveTool = Tool.NONE;
             CanHighlightEye = false;
             LightReflexActive = true;
+            CornealReflexActive = true;
 
             cursorDefault = Cursors.Arrow;
             cursorCotton = new Cursor(Application.GetResourceStream(
@@ -64,8 +81,8 @@ namespace Hyperpharm
             new Uri("res/cursor_torch.cur", UriKind.Relative)).Stream
             );
 
-            //toolTorch.Click += TorchButtonClick;
-            //toolCotton.Click += CottonButtonClick;
+            torchButton.Click += TorchButtonClick;
+            cottonButton.Click += CottonButtonClick;
         }
 
         private void ToolClicked(Tool tool)
@@ -108,6 +125,18 @@ namespace Hyperpharm
         private void CottonButtonClick(object sender, RoutedEventArgs e)
         {
             ToolClicked(Tool.COTTON);
+        }
+
+        private void NewDrug(object sender, RoutedEventArgs e)
+        {
+            DrugSelectionWindow drugSelectionWindow = new DrugSelectionWindow();
+            drugSelectionWindow.Owner = this;
+            drugSelectionWindow.ShowDialog();
+            
+            if((bool)drugSelectionWindow.DialogResult)
+            {
+                MessageBox.Show(drugSelectionWindow.SelectedDrug, "Drug Selected", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }

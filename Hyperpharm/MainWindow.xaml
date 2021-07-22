@@ -82,21 +82,120 @@
                                 VerticalAlignment="Center" Padding="10"/>
                         </Border>
 
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"
+                        <Grid HorizontalAlignment="Right"
                                     Grid.Row="1">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
                             <Border Background="#474747" Width="200" Height="200" Margin="10, 10, 5, 10">
-                                <Image Source="res/image_rabbiteye_open.png"
-                                       Margin="5"
-                               ></Image>
+                                <Image
+                                    Margin="5">
+
+                                    <Image.Style>
+                                        <Style TargetType="Image">
+                                            <Setter Property="Source" Value="res/image_rabbiteye_open.png" />
+
+                                            <Style.Triggers>
+                                                <MultiDataTrigger>
+                                                    <MultiDataTrigger.Conditions>
+                                                        <Condition Binding="{Binding CornealReflexActive, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" Value="True" />
+                                                        <Condition Binding="{Binding ActiveTool, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" Value="{x:Static local:Tool.COTTON}" />
+                                                        <Condition Binding="{Binding ElementName=HighlightRectangle, Path=IsMouseOver}" Value="True" />
+                                                    </MultiDataTrigger.Conditions>
+
+                                                    <MultiDataTrigger.Setters>
+                                                        <Setter Property="Source" Value="res/image_rabbiteye_closed.png" />
+                                                    </MultiDataTrigger.Setters>
+
+                                                </MultiDataTrigger>
+                                            </Style.Triggers>
+
+                                        </Style>
+                                    </Image.Style>
+
+                                </Image>
                             </Border>
 
-                            <Border Background="#474747" Width="200" Height="200" Margin="5, 10, 0, 10">
+                            <Border Background="#474747" Width="200" Height="200" Margin="5, 10, 0, 10"
+                                    Grid.Column="1">
                                 <Image Source="res/image_rabbit_profile.png"
                                        Margin="5"
                                ></Image>
                             </Border>
 
-                        </StackPanel>
+                            <Canvas Grid.Column="1" Margin="5, 10, 0, 10">
+                                <Rectangle x:Name="HighlightRectangle" Width="50" Height="50" Fill="Transparent" Canvas.Left="80" Canvas.Top="85">
+                                    <Rectangle.Style>
+                                        <Style TargetType="Rectangle">
+
+                                            <Setter Property="Stroke" Value="Black" />
+                                            <Setter Property="StrokeThickness" Value="2" />
+
+                                            <Style.Triggers>
+                                                <MultiDataTrigger>
+
+                                                    <MultiDataTrigger.Conditions>
+                                                        <Condition Binding="{Binding ElementName=HighlightRectangle, Path=IsMouseOver}" Value="True" />
+                                                        <Condition Binding="{Binding CanHighlightEye, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" Value="True" />
+                                                    </MultiDataTrigger.Conditions>
+
+                                                    <MultiDataTrigger.Setters>
+                                                        <Setter Property="Stroke" Value="Red" />
+                                                        <Setter Property="StrokeThickness" Value="4" />
+                                                    </MultiDataTrigger.Setters>
+
+                                                </MultiDataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Rectangle.Style>
+                                </Rectangle>
+                            </Canvas>
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Column="0" Margin="5, 10, 0, 10">
+                                <Ellipse x:Name="PupilEllipse" Fill="Red" RenderTransformOrigin="0.5,0.5"
+                                         >
+                                    <Ellipse.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform X="7" Y="22"/>
+                                        </TransformGroup>
+                                    </Ellipse.RenderTransform>
+                                    <Ellipse.Style>
+                                        <Style TargetType="Ellipse">
+
+                                            <Setter Property="Stroke" Value="Black" />
+                                            <Setter Property="StrokeThickness" Value="2" />
+
+                                            <Setter Property="Width" Value="40" />
+                                            <Setter Property="Height" Value="40" />
+
+                                            <Style.Triggers>
+                                                <MultiDataTrigger>
+
+                                                    <MultiDataTrigger.Conditions>
+                                                        <Condition Binding="{Binding ElementName=HighlightRectangle, Path=IsMouseOver}" Value="True" />
+                                                        <Condition Binding="{Binding ActiveTool, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" Value="{x:Static local:Tool.TORCH}" />
+                                                        <Condition Binding="{Binding LightReflexActive, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" Value="True" />
+                                                    </MultiDataTrigger.Conditions>
+
+                                                    <MultiDataTrigger.Setters>
+                                                        <Setter Property="Width" Value="30" />
+                                                        <Setter Property="Height" Value="30" />
+                                                    </MultiDataTrigger.Setters>
+
+                                                </MultiDataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Ellipse.Style>
+                                </Ellipse>
+                            </StackPanel>
+
+                        </Grid>
 
                         <Border Background="#474747"
                                     Height="40"
@@ -113,9 +212,13 @@
                                     </Label.Content>
                                 </Label>
 
-                                <Button Width="100" Height="30" Margin="0, 0, 5 0" VerticalAlignment="Center">New Drug</Button>
+                                <Button Width="100" Height="30" Margin="0, 0, 5 0" VerticalAlignment="Center"
+                                        Click="NewDrug"
+                                        >
+                                    New Drug
+                                </Button>
 
-                                <Button Width="100" Height="30" Margin="0, 0, 5 0" VerticalAlignment="Center">New Rabbit</Button>
+                                <!--<Button Width="100" Height="30" Margin="0, 0, 5 0" VerticalAlignment="Center">New Rabbit</Button>-->
 
                             </StackPanel>
                         </Border>
@@ -345,9 +448,17 @@
                                 VerticalAlignment="Center" Padding="10"/>
                         </Border>
 
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"
-                                    Grid.Row="1" FlowDirection="RightToLeft">
-                            <Border Background="#474747" Width="200" Height="200" Margin="10, 10, 5, 10">
+                        <Grid HorizontalAlignment="Left"
+                                    Grid.Row="1">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Background="#474747" Width="200" Height="200" Margin="10, 10, 5, 10"
+                                    Grid.Column="1"
+                                    >
                                 <Image Source="res/image_rabbiteye_open.png"
                                        Margin="5" RenderTransformOrigin="0.5,0.5"
                                >
@@ -377,7 +488,7 @@
                                 </Image>
                             </Border>
 
-                        </StackPanel>
+                        </Grid>
 
                         <Border Background="#474747"
                                     Height="80"
@@ -398,7 +509,7 @@
 
                                     <Button Width="100" Height="30" Margin="0, 0, 5 0" >New Drug</Button>
 
-                                    <Button Width="100" Height="30" Margin="0, 0, 5 0" >New Rabbit</Button>
+                                    <!--<Button Width="100" Height="30" Margin="0, 0, 5 0" >New Rabbit</Button>-->
 
                                 </StackPanel>
 
@@ -435,7 +546,7 @@
                                         </Grid.RowDefinitions>
 
                                         <Grid.Resources>
-                                            
+
                                             <Style x:Key="TopLevelHeaderStyle" TargetType="TextBlock">
                                                 <Setter Property="FontWeight" Value="Bold" />
                                                 <Setter Property="Padding" Value="10" />
@@ -468,9 +579,24 @@
                                             Style="{StaticResource ToolsPanelBorderStyle}">
 
                                             <WrapPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                                                <Button Width="100" Height="50" Margin="10">Torch</Button>
-                                                <Button Width="100" Height="50" Margin="10">Cotton</Button>
-                                                <Button Width="100" Height="50" Margin="10">Ruler</Button>
+
+                                                <Button x:Name="torchButton" Width="100" Height="70" Margin="10">
+                                                    <Button.Content>
+                                                        <Image Source="res/icon_torch.png" Margin="0, 5, 10, 5"></Image>
+                                                    </Button.Content>
+                                                </Button>
+
+                                                <Button x:Name="cottonButton" Width="100" Height="70" Margin="10">
+                                                    <Button.Content>
+                                                        <Image Source="res/icon_cotton.png" Margin="5"></Image>
+                                                    </Button.Content>
+                                                </Button>
+
+                                                <Button x:Name="rulerButton" Width="100" Height="70" Margin="10">
+                                                    <Button.Content>
+                                                        <Image Source="res/icon_cotton.png" Margin="5"></Image>
+                                                    </Button.Content>
+                                                </Button>
                                             </WrapPanel>
 
                                         </Border>
@@ -559,7 +685,7 @@
                                 </Border>
 
                             </Grid>
-                            
+
                         </Border>
 
                     </Grid>
